@@ -135,7 +135,7 @@ void init(void){int i;
 
 void move(void){
 	uint32_t ADCdata = ADC_In();
-	player.x = (100*ADCdata)/4095;
+	player.x = (120*ADCdata)/4000;
 	for(int i=0; i<18; i++){
 		if(missile[i].life == alive){
 			if(missile[i].x < 0){
@@ -174,19 +174,22 @@ void draw(void){
 
 void collisions(void){
 	int i;
-	uint32_t x1, y1, x2, y2;
+	uint32_t x1, y1, x2, y2, x3, x4, y3, y4;
 	x2 = enemy.x +8;
-	y2 = enemy.y +4;
+	y2 = enemy.y -4;
 	for(i=0; i<18; i++){
 		if(missile[i].life == alive){
 			x1 = missile[i].x;
 			y1 = missile[i].y;
-			if(((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2)) < 9){
+			if(((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2)) < 81){
 				enemy.life = dead;
 				return;
 			}
 		}
 	}
+	x3 = player.x;
+	y3 = player.y;
+	
 }
 				
 
@@ -210,6 +213,7 @@ int main(void){uint32_t time=0;
 	SysTick_Init(8000000);
 	
 	while(1){
+		move();
 		draw();
 	}
 	
