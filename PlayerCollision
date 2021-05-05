@@ -1,0 +1,31 @@
+void playercollision(void){
+	if((SSD1306_GetPixel(player.x-3, player.y+3) == true) ||
+		(SSD1306_GetPixel(player.x-2, player.y+3) == true) ||
+		(SSD1306_GetPixel(player.x-1, player.y+3) == true) ||
+		(SSD1306_GetPixel(player.x, player.y+3) == true) ||
+		(SSD1306_GetPixel(player.x+1, player.y+3) == true) ||
+		(SSD1306_GetPixel(player.x+2, player.y+3) == true) ||
+		(SSD1306_GetPixel(player.x+3, player.y+3) == true) ||
+		
+		(SSD1306_GetPixel(player.x-3, player.y-3) == true) ||
+		(SSD1306_GetPixel(player.x-2, player.y-3) == true) ||
+		(SSD1306_GetPixel(player.x-1, player.y-3) == true) ||
+		(SSD1306_GetPixel(player.x, player.y-3) == true) ||
+		(SSD1306_GetPixel(player.x+1, player.y-3) == true) ||
+		(SSD1306_GetPixel(player.x+2, player.y-3) == true) ||
+		(SSD1306_GetPixel(player.x+3, player.y-3) == true) ||
+			
+		(SSD1306_GetPixel(player.x-3, player.y-2) == true) ||
+		(SSD1306_GetPixel(player.x-3, player.y-1) == true) ||
+		(SSD1306_GetPixel(player.x-3, player.y) == true) ||
+		(SSD1306_GetPixel(player.x-3, player.y+1) == true) ||
+		(SSD1306_GetPixel(player.x-3, player.y+2) == true) ||
+				
+		(SSD1306_GetPixel(player.x+3, player.y-2) == true) ||
+		(SSD1306_GetPixel(player.x+3, player.y-1) == true) ||
+		(SSD1306_GetPixel(player.x+3, player.y) == true) ||
+		(SSD1306_GetPixel(player.x+3, player.y+1) == true) ||
+		(SSD1306_GetPixel(player.x+3, player.y+2) == true)){
+			player.life = dead;
+		}
+}
